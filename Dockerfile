@@ -1,4 +1,3 @@
 FROM openjdk:8-jre
-ENTRYPOINT ["/usr/local/openjdk-8/bin/java", "-jar","docker-demo.jar"]
-ARG JAR_FILE
-ADD target/${JAR_FILE} docker-demo.jar
+CMD ["/usr/local/openjdk-8/bin/java", "-jar","docker-demo.jar"]
+ADD target/docker-demo-0.0.1-SNAPSHOT docker-demo.jar
