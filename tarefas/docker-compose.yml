@@ -1,7 +1,7 @@
 version: '3'
 services:
-  mysql:
-    image: mysql:latest
+  database:
+    image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=tarefas
@@ -17,6 +17,19 @@ services:
       context: ./
       dockerfile: Dockerfile
     depends_on:
-      - mysql
+      - database
     ports:
       - 8080:8080
+    links: 
+      - database:database
+  web1:
+    image: tarefas
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+    links: 
+      - database:database
