@@ -22,14 +22,3 @@ services:
       - 8080:8080
     links: 
       - database:database
-  web1:
-    image: tarefas
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    depends_on:
-      - database
-    ports:
-      - 8080:8080
-    links: 
-      - database:database
